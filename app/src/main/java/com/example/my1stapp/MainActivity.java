@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,15 +54,45 @@ public class MainActivity extends AppCompatActivity {
             textView.setText(textViewText);
             textView.setTextColor(ColorStateList.valueOf(Color.WHITE));
 
-            LinearLayout linearLayout  = findViewById(R.id.linearLayout);
-            binding.linearLayout.addView(textView);
+//            LinearLayout linearLayout  = findViewById(R.id.linearLayout);
+//            binding.linearLayout.addView(textView);
         }
+
+        //
+        // Add Images Dynamically
+        //
+
+        String imgName = "cat3";
+        int imgId = getResources().getIdentifier(imgName, "drawable", getPackageName());
+
+        Drawable drawable = getDrawable(imgId);
+
+
+
+
+        //change the image
+
+        //Add image 4 times on bar
+        for (int i = 0; i < 4; i++) {
+            ImageView imgView = new ImageView(this);
+            imgView.setId(i);
+            imgView.setImageDrawable(drawable);
+
+            LinearLayout linearLayout  = findViewById(R.id.linearLayout);
+            binding.linearLayout.addView(imgView);
+        }
+
+        //
+        //Using Strings.xml
+        //
+
+        String welcomeMessage3 = getResources().getString(R.string.welcome_message);
+        textWelcome.setText(welcomeMessage3);
+
 
         //
         //Handle Button Click
         //
-
-
         Button buttonSubmit = binding.buttonSubmit;
 
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
