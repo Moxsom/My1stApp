@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
             textView.setText(textViewText);
             textView.setTextColor(ColorStateList.valueOf(Color.WHITE));
 
-//            LinearLayout linearLayout  = findViewById(R.id.linearLayout);
-//            binding.linearLayout.addView(textView);
+            LinearLayout linearLayout  = findViewById(R.id.linearLayout);
+            binding.linearLayout.addView(textView);
         }
 
         //
