@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         //change the image
 
-        //Add image 4 times on bar
+        //Add image 4 times on bar Horizontal
         for (int i = 0; i < 4; i++) {
             ImageView imgView = new ImageView(this);
             imgView.setId(i);
@@ -80,6 +80,16 @@ public class MainActivity extends AppCompatActivity {
 
             LinearLayout linearLayout  = findViewById(R.id.linearLayout);
             binding.linearLayout.addView(imgView);
+        }
+
+        //Add image tones of times on Vertical Bar
+        for (int i = 0; i < 7; i++) {
+            ImageView imgView = new ImageView(this);
+            imgView.setId(i);
+            imgView.setImageDrawable(drawable);
+
+            LinearLayout linerLayoutVertical = findViewById(R.id.linerLayoutVertical);
+            binding.linerLayoutVertical.addView(imgView);
         }
 
         //
@@ -99,7 +109,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 //                String name = binding.editTextName.getText().toString(); //same thing as below
-                String message = "Submit button Clicked! Hello " + binding.editTextName.getText().toString();
+                String firstName = binding.editTextName.getText().toString();
+                String lastName = binding.editTextLName.getText().toString();
+                String message = ("Hello " + firstName + " " + lastName);
+//                String message = "Submit button Clicked! Hello " + binding.editTextName.getText().toString();
                 Log.i("TESTING","Submit Button Clicked! Hello " + binding.editTextName.getText().toString());
 
                 Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
